@@ -17,5 +17,12 @@ build/suma_numeros_un_bit.o: src/suma_numeros_un_bit.asm
 	mkdir -p build
 	$(ASM) $(ASMFLAGS) -o build/suma_numeros_un_bit.o src/suma_numeros_un_bit.asm
 
+sub_one_bit: build/resta_numeros_un_bit.o
+	$(LD) $(LDFLAGS) -o build/resta_numeros_un_bit build/resta_numeros_un_bit.o
+
+build/resta_numeros_un_bit.o: src/resta_numeros_un_bit.asm
+	mkdir -p build
+	$(ASM) $(ASMFLAGS) -o build/resta_numeros_un_bit.o src/resta_numeros_un_bit.asm
+
 clean:
 	rm -rf build
